@@ -1,6 +1,6 @@
 ---
-title: "CRP_quantification_29.09.2022"
-author: "Sara.H, Yousra.H"
+title: "CRP_quantification"
+author: "Sara.H"
 date: "09/29/2022"
 #output: html_document
 output: 
@@ -25,9 +25,9 @@ library("ggpubr")
 ``` 
 
 ```{r }
-CRPDataOrigFn <- "~/Desktop/CRP kwant/KS-CRP-measurements-20220929.csv"
-CRPDataParsedFn <- "~/Desktop/CRP kwant/KS-CRP_tidied_complete.csv"
-CRPDataDistLongFn <- "~/Desktop/CRP kwant/KS-CRP_org_by_region.csv"
+CRPDataOrigFn <- "./Data/CRP-measurements.csv"
+CRPDataParsedFn <- "./Data/CRP_tidied_complete.csv"
+CRPDataDistLongFn <- "./Data/CRP_org_by_region.csv"
 ```
 
 ```{r }
@@ -55,9 +55,6 @@ typeof(CRPData$dist2inv_front_D)
 ```
 
 ```{r }
-# Rename one file_name 
-CRPData <- CRPData %>% mutate(file_name = str_replace(file_name, "(R3b-CRP)", "R3b_CRP"))
-
 # Substitute in file name last occurrence of '-' by ':' to separate image name from markers
 # Negative lookahead is used when you want to match something (Word1) not followed by something else (Word2):  Word1(?!.*Word2)
 # We use this to find the last occurrence of a word in a string.
